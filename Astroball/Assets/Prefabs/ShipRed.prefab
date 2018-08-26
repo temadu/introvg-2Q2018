@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 11467686}
   m_Layer: 0
   m_Name: LaserGun
-  m_TagString: Untagged
+  m_TagString: Laser
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -29,10 +29,10 @@ GameObject:
   - component: {fileID: 6098254}
   - component: {fileID: 11429612}
   - component: {fileID: 11439158}
-  - component: {fileID: 11490574}
+  - component: {fileID: 114947216011624862}
   m_Layer: 0
   m_Name: ShipRed
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -75,7 +75,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 2
+  m_Mass: 1
   m_LinearDrag: 0.5
   m_AngularDrag: 2000
   m_GravityScale: 0
@@ -162,18 +162,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shootKey: 305
---- !u!114 &11490574
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 132216}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fcfc4a9a016eaa444b1712f8c87bbee4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  otherObject: Meteor
 --- !u!212 &21276712
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -231,3 +219,14 @@ Prefab:
   m_SourcePrefab: {fileID: 0}
   m_RootGameObject: {fileID: 132216}
   m_IsPrefabAsset: 1
+--- !u!114 &114947216011624862
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 132216}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4b3b8ebe94930f241b7caff749bd634c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

@@ -20,7 +20,9 @@ public class ObjectPool : MonoBehaviour {
         pools = new Dictionary<string,InnerPool>();
         foreach(GameObject gameObj in objectPrefabs)
         {
-            pools.Add(gameObj.name,new InnerPool(gameObj, 0, true));
+            Debug.Log("Cargando pool");
+            Debug.Log(gameObj.name);
+            pools.Add(gameObj.name,new InnerPool(gameObj, 1, true));
             //print("Adding object to pool: " + gameObj.name);
         }
     }
@@ -79,6 +81,7 @@ public class ObjectPool : MonoBehaviour {
         {
             if (pooledObjects.Count > 0)
             {
+                Debug.Log("Popeo el fucking object");
                 return pooledObjects.Pop();
             }
 

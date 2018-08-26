@@ -43,6 +43,7 @@ MonoBehaviour:
   objectPrefabs:
   - {fileID: 155616, guid: e657466cb705a904d96ad0b95d5a5c0b, type: 2}
   - {fileID: 176778, guid: ebc99476f927b4d4b81a48c00ae34e48, type: 2}
+  - {fileID: 1168543018419830, guid: ff61784cf56634a4b88a92ad05736e5b, type: 2}
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
