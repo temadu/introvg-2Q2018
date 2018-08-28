@@ -1,19 +1,20 @@
+﻿using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
-using System.Collections;
 
-public class ShipCollisionDetection : MonoBehaviour {
-
-    // public GameObject elasticRope;
-
-    void OnCollisionEnter2D(Collision2D other){
-
+public class GoalCollisionDetection : MonoBehaviour
+{
+    private void OnTriggerEnter2D(Collider2D other){
+        
         if (other.gameObject.tag == "Ball"){
-            
+
             GameObject elasticRopeGameObj = GameObject.Find("ElasticRope");
             ElasticRope rope = elasticRopeGameObj.GetComponent<ElasticRope>();
-            rope.ConnectRope(this.gameObject, other.gameObject);
+            rope.DisconnectRope(other.gameObject);
 
+            Debug.Log("Gol");
             // Destroy(other.gameObject);
         }
     }
+
 }

@@ -29,31 +29,31 @@ public class ElasticRope : MonoBehaviour {
 		// this.ConnectRope(this.startPoint, this.endPoint);
 	}
 
-	public void Show(){
-		this.rend.enabled = true;
-	}
 
 	public void ConnectRope(GameObject startPoint, GameObject endPoint){
-		Debug.Log(startPoint.name);
-		Debug.Log(endPoint.name);
-        // this.gameObject.SetActive(true);
+		
         this.startPoint = startPoint;
 		this.endPoint = endPoint;
-		Debug.Log("hola" + this.startPoint.GetComponent<Rigidbody2D>());
         this.dJoint.connectedBody = this.startPoint.GetComponent<Rigidbody2D>();
-        Debug.Log("cjau" + this.dJoint);
         this.sJoint.connectedBody = this.endPoint.GetComponent<Rigidbody2D>();
         this.rend.SetPosition(0, this.startPoint.transform.position);
         this.rend.SetPosition(1, this.endPoint.transform.position);
+
+        this.rend.enabled = true;
     }
 
-	public void DisconnectRope(){
-		this.endPoint.GetComponent<Rigidbody2D>().drag = 0.3f;
-		Destroy(this.gameObject);
+	public void DisconnectRope(GameObject newGameObject){
+
+        Debug.Log(newGameObject.tag);
+
+        this.endPoint.GetComponent<Rigidbody2D>().drag = 0.3f;
+        this.ConnectRope(newGameObject, newGameObject);
+        this.rend.enabled = false;
+        //Destroy(this.gameObject);
 	}
-	
-	// Update is called once per frame
-	void Update () {
+
+    // Update is called once per frame
+    void Update () {
 		//Physics
 		// this.col.points[0] = transform.parent.position;
 		// this.vertices[0] = new Vector2(startPoint.transform.position.x - transform.position.x, startPoint.transform.position.y - transform.position.y);
