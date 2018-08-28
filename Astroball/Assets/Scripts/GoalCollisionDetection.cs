@@ -2,8 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GoalCollisionDetection : MonoBehaviour
-{
+public class GoalCollisionDetection : MonoBehaviour{
+
+    public int scorerPlayer;
+
     private void OnTriggerEnter2D(Collider2D other){
         
         if (other.gameObject.tag == "Ball"){
@@ -12,7 +14,9 @@ public class GoalCollisionDetection : MonoBehaviour
             ElasticRope rope = elasticRopeGameObj.GetComponent<ElasticRope>();
             rope.DisconnectRope(other.gameObject);
 
-            Debug.Log("Gol");
+            GameManagerScript.instance.ScoreGoal(scorerPlayer);
+            ParticleHelperScript.Instance.Explosion(other.gameObject.GetComponent<Rigidbody2D>().position, new Color(0.5f, 1f, 1f, 1f));
+
             // Destroy(other.gameObject);
         }
     }
