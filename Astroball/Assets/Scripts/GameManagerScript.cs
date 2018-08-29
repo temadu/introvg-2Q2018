@@ -82,6 +82,12 @@ public class GameManagerScript : MonoBehaviour {
         if (scores[scorerPlayer] == END_GAME_SCORE) {
             this.ResetPlayerPositions();
             this.winner = scorerPlayer;
+
+            if (scorerPlayer == 0)
+                ParticleHelperScript.Instance.Winner(this.playerOne.transform.position, scorerPlayer);
+            else
+                ParticleHelperScript.Instance.Winner(this.playerTwo.transform.position, scorerPlayer);
+
             Invoke("GoToMenu", 3f);
         }else
             Invoke("Reset", 1f);

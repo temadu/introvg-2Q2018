@@ -17,10 +17,9 @@ public class ShipData : MonoBehaviour {
 
         if (GameManagerScript.instance.winner == -1) return;
 
-        if (playerNumber == GameManagerScript.instance.winner){
+        if (playerNumber == GameManagerScript.instance.winner)
             rb.transform.Rotate(transform.forward * 15);
-            ParticleHelperScript.Instance.Explosion(rb.position, playerNumber);
-        }
+        
 
     }
 
