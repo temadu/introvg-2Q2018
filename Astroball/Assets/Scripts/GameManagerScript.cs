@@ -44,10 +44,12 @@ public class GameManagerScript : MonoBehaviour {
     private void ResetPlayerPositions(){
 
         this.playerOne.transform.position = new Vector2(-4f, 0f);
+        this.playerOne.transform.rotation = Quaternion.Euler(new Vector3(0, 0, -90));
         this.playerOne.velocity = Vector2.zero;
         this.playerOne.angularVelocity = 0f;
 
         this.playerTwo.transform.position = new Vector2(4f, 0f);
+        this.playerTwo.transform.rotation = Quaternion.Euler(new Vector3(0, 0, 90));
         this.playerTwo.velocity = Vector2.zero;
         this.playerTwo.angularVelocity = 0f;
     }
