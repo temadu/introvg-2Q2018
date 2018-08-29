@@ -10,9 +10,9 @@ public class GoalCollisionDetection : MonoBehaviour{
         
         if (other.gameObject.tag == "Ball"){
 
-            GameObject elasticRopeGameObj = GameObject.Find("ElasticRope");
+            GameObject elasticRopeGameObj = GameObject.FindGameObjectWithTag("Chain");
             ElasticRope rope = elasticRopeGameObj.GetComponent<ElasticRope>();
-            rope.DisconnectRope(other.gameObject);
+            rope.DisconnectRope();
 
             GameManagerScript.instance.ScoreGoal(scorerPlayer);
             ParticleHelperScript.Instance.Explosion(other.gameObject.GetComponent<Rigidbody2D>().position, new Color(0.5f, 1f, 1f, 1f));

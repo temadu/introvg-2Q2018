@@ -24,7 +24,13 @@ public class ElasticRope : MonoBehaviour {
         this.rend = GetComponent<LineRenderer>();
         this.rend.positionCount = 2;
 
-        this.rend.enabled = false;
+        this.dJoint.connectedBody = this.startPoint.GetComponent<Rigidbody2D>();
+        this.sJoint.connectedBody = this.endPoint.GetComponent<Rigidbody2D>();
+
+        this.rend.SetPosition(0, this.startPoint.transform.position);
+        this.rend.SetPosition(1, this.endPoint.transform.position);
+
+        // this.rend.enabled = false;
         //this.gameObject.SetActive(false);
         // this.ConnectRope(this.startPoint, this.endPoint);
     }
@@ -34,22 +40,50 @@ public class ElasticRope : MonoBehaviour {
 
         this.startPoint = startPoint;
         this.endPoint = endPoint;
+
+        // this.dJoint = this.gameObject.AddComponent(typeof(DistanceJoint2D)) as DistanceJoint2D;
+        // this.dJoint.autoConfigureDistance = false;
+        // this.dJoint.distance = 1;
+        // this.dJoint.maxDistanceOnly = true;
+        // this.dJoint.breakForce = Mathf.Infinity;
         this.dJoint.connectedBody = this.startPoint.GetComponent<Rigidbody2D>();
+
+        // this.sJoint = this.gameObject.AddComponent(typeof(SpringJoint2D)) as SpringJoint2D;
+        // this.sJoint.autoConfigureDistance = false;
+        // this.sJoint.distance = 1;
+        // this.sJoint.dampingRatio = 1;
+        // this.sJoint.frequency = 1;
+        // this.sJoint.breakForce = Mathf.Infinity;
         this.sJoint.connectedBody = this.endPoint.GetComponent<Rigidbody2D>();
+
         this.rend.SetPosition(0, this.startPoint.transform.position);
         this.rend.SetPosition(1, this.endPoint.transform.position);
 
-        this.rend.enabled = true;
+       // this.dJoint.enabled = true;
+        //this.sJoint.enabled = true;
+        //this.rend.enabled = true;
     }
 
-    public void DisconnectRope(GameObject newGameObject) {
-
-        Debug.Log(newGameObject.tag);
+    public void DisconnectRope() {
 
         this.endPoint.GetComponent<Rigidbody2D>().drag = 0.3f;
-        this.ConnectRope(newGameObject, newGameObject);
-        this.rend.enabled = false;
-        //Destroy(this.gameObject);
+        GameManagerScript.instance.PlayerWithBall = -1;
+        
+        //this.dJoint.enabled = false;
+        //this.sJoint.enabled = false;
+
+        //Destroy(this.dJoint);
+        //Destroy(this.sJoint);
+        //this.dJoint.connectedBody = null;
+        //this.sJoint.connectedBody = null;
+        //this.startPoint = null;
+        //this.endPoint = null;
+        //this.ConnectRope(newGameObject, newGameObject);
+        
+
+        //this.rend.enabled = false;
+        
+        Destroy(this.gameObject);
     }
 
     // Update is called once per frame

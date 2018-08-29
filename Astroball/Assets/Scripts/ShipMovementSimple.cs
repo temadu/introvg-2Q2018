@@ -12,6 +12,7 @@ public class ShipMovementSimple : MonoBehaviour {
     public KeyCode thrusterKey = KeyCode.UpArrow;
     public KeyCode leftKey = KeyCode.LeftArrow;
     public KeyCode rightKey = KeyCode.RightArrow;
+    public KeyCode removeRopeKey = KeyCode.Z;
     
     private Vector2 velocity;
     Rigidbody2D body;
@@ -41,6 +42,10 @@ public class ShipMovementSimple : MonoBehaviour {
         if (Input.GetKey(this.rightKey)){
             //body.AddTorque(-rotSpeed * Time.deltaTime);
             transform.Rotate(transform.forward * -rotSpeed);
+        }
+        if (Input.GetKey(this.removeRopeKey)){
+            if(GameManagerScript.instance.PlayerWithBall == this.gameObject.GetComponent<ShipData>().playerNumber)
+                GameObject.FindGameObjectWithTag("Chain").GetComponent<ElasticRope>().DisconnectRope();
         }
 
 

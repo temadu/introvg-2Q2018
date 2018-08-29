@@ -9,7 +9,7 @@ GameObject:
   m_Component:
   - component: {fileID: 498948}
   - component: {fileID: 11467686}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: LaserGun
   m_TagString: Laser
   m_Icon: {fileID: 0}
@@ -30,7 +30,7 @@ GameObject:
   - component: {fileID: 11429612}
   - component: {fileID: 11439158}
   - component: {fileID: 114947216011624862}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: ShipRed
   m_TagString: Player
   m_Icon: {fileID: 0}
