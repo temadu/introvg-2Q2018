@@ -458,8 +458,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 362971295}
-        m_MethodName: StartGame
+      - m_Target: {fileID: 0}
+        m_MethodName: Play
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -978,7 +978,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: b2260cf4e0ba0944d8204b3e9ffadd7b, type: 3}
+  m_audioClip: {fileID: 8300000, guid: ada6c75cdb7a14241acca90850ab2602, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1

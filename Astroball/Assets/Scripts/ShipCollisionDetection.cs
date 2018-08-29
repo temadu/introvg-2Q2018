@@ -4,6 +4,8 @@ using System.Collections;
 public class ShipCollisionDetection : MonoBehaviour {
 
     public GameObject elasticRope;
+    public AudioSource hitSound;
+    public AudioSource ballPickupSound;
 
     private int playerNumber;
 
@@ -17,6 +19,7 @@ public class ShipCollisionDetection : MonoBehaviour {
             if (this.HasTheBall()) return;
             this.StealBall();   
         } else if(other.gameObject.tag == "Meteor" || other.gameObject.tag == "Laser"){
+            hitSound.Play();
             LoseTheBall();
         }
         // else if(other.gameObject.tag == "Player") {
@@ -35,6 +38,7 @@ public class ShipCollisionDetection : MonoBehaviour {
         rope.transform.position = GameManagerScript.instance.ball.transform.position;
         rope.GetComponent<ElasticRope>().startPoint = this.gameObject;
         rope.GetComponent<ElasticRope>().endPoint = GameManagerScript.instance.ball.gameObject;
+        ballPickupSound.Play();
     }
 
     bool HasTheBall(){

@@ -14,6 +14,7 @@ public class GameManagerScript : MonoBehaviour {
     public Rigidbody2D ball;
     public Rigidbody2D playerOne;
     public Rigidbody2D playerTwo;
+    public AudioSource goalSound;
 
     public GameObject countdown;
 
@@ -63,6 +64,7 @@ public class GameManagerScript : MonoBehaviour {
         scores[scorerPlayer]++;
         Debug.Log(scores[scorerPlayer]);
         this.playerScores[scorerPlayer].text = scores[scorerPlayer].ToString();
+        goalSound.Play();
 
         Invoke("Reset", 1f);
     }

@@ -5,6 +5,7 @@ public class ShootLaser_P2 : MonoBehaviour {
 
     [Header("Controller Settings")]
     public KeyCode shootKey = KeyCode.RightControl;
+    public AudioSource shootSound;
 
     void Update()
     {
@@ -14,6 +15,7 @@ public class ShootLaser_P2 : MonoBehaviour {
             if (laserAux == null)
                 return;
             laserAux.SetActive(true);
+            shootSound.Play();
             laserAux.transform.position = transform.position;
             laserAux.transform.rotation = transform.rotation;
         }
