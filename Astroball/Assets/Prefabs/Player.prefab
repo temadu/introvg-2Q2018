@@ -30,6 +30,7 @@ GameObject:
   - component: {fileID: 11429612}
   - component: {fileID: 11439158}
   - component: {fileID: 114947216011624862}
+  - component: {fileID: 114356939943243098}
   m_Layer: 8
   m_Name: ShipRed
   m_TagString: Player
@@ -163,6 +164,7 @@ MonoBehaviour:
   thrusterKey: 273
   leftKey: 276
   rightKey: 275
+  removeRopeKey: 122
 --- !u!114 &11439158
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -245,6 +247,18 @@ Prefab:
   m_SourcePrefab: {fileID: 0}
   m_RootGameObject: {fileID: 132216}
   m_IsPrefabAsset: 1
+--- !u!114 &114356939943243098
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 132216}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 47d8b7a0e6a92c24fae300c93ca55fe4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerNumber: 0
 --- !u!114 &114947216011624862
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -256,3 +270,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4b3b8ebe94930f241b7caff749bd634c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  elasticRope: {fileID: 1168543018419830, guid: ff61784cf56634a4b88a92ad05736e5b,
+    type: 2}
