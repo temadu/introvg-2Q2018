@@ -16,8 +16,7 @@ public class ObjectPool : MonoBehaviour {
         pools = new Dictionary<string, InnerPool>();
         foreach (GameObject gameObj in objectPrefabs)
         {
-            Debug.Log("Cargando pool");
-            Debug.Log(gameObj.name);
+            
             pools.Add(gameObj.name, new InnerPool(gameObj, 1, true));
             //print("Adding object to pool: " + gameObj.name);
         }

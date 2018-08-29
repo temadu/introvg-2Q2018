@@ -67,7 +67,7 @@ public class ElasticRope : MonoBehaviour {
     public void DisconnectRope() {
 
         this.endPoint.GetComponent<Rigidbody2D>().drag = 0.3f;
-        GameManagerScript.instance.PlayerWithBall = -1;
+        GameManagerScript.instance.playerWithBall = -1;
         
         //this.dJoint.enabled = false;
         //this.sJoint.enabled = false;

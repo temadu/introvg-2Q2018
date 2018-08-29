@@ -33,7 +33,7 @@ public class ShipCollisionDetection : MonoBehaviour {
         GameObject rope = GameObject.FindGameObjectWithTag("Chain");
         if (rope != null) rope.GetComponent<ElasticRope>().DisconnectRope();
 
-        GameManagerScript.instance.PlayerWithBall = this.gameObject.GetComponent<ShipData>().playerNumber;
+        GameManagerScript.instance.playerWithBall = this.gameObject.GetComponent<ShipData>().playerNumber;
         rope = Instantiate(elasticRope);
         rope.transform.position = GameManagerScript.instance.ball.transform.position;
         rope.GetComponent<ElasticRope>().startPoint = this.gameObject;
@@ -42,7 +42,7 @@ public class ShipCollisionDetection : MonoBehaviour {
     }
 
     bool HasTheBall(){
-        return GameManagerScript.instance.PlayerWithBall == this.playerNumber;
+        return GameManagerScript.instance.playerWithBall == this.playerNumber;
     }
 
     void LoseTheBall(){

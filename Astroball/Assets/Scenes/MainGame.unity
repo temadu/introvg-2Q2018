@@ -535,6 +535,11 @@ Prefab:
       propertyPath: m_LocalPosition.y
       value: 0.46
       objectReference: {fileID: 0}
+    - target: {fileID: 114356939943243098, guid: 661cb2ebd9c67f546a6ef0da80f6e2bb,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 661cb2ebd9c67f546a6ef0da80f6e2bb, type: 2}
   m_IsPrefabAsset: 0
@@ -606,11 +611,16 @@ Prefab:
     - target: {fileID: 114356939943243098, guid: 661cb2ebd9c67f546a6ef0da80f6e2bb,
         type: 2}
       propertyPath: playerNumber
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 11467686, guid: 661cb2ebd9c67f546a6ef0da80f6e2bb, type: 2}
       propertyPath: shootKey
       value: 113
+      objectReference: {fileID: 0}
+    - target: {fileID: 114356939943243098, guid: 661cb2ebd9c67f546a6ef0da80f6e2bb,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 661cb2ebd9c67f546a6ef0da80f6e2bb, type: 2}

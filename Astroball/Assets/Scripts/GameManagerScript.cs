@@ -2,13 +2,17 @@
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.SceneManagement;
+
 
 public class GameManagerScript : MonoBehaviour {
 
     public const int PLAYERS_COUNT = 2;
+    public const int END_GAME_SCORE = 2;
+
     public static GameManagerScript instance;
     public int[] scores;
-
+    public int winner = -1;
     
     public TextMeshProUGUI[] playerScores;
     public Rigidbody2D ball;
@@ -18,7 +22,7 @@ public class GameManagerScript : MonoBehaviour {
 
     public GameObject countdown;
 
-    public int PlayerWithBall = -1;
+    public int playerWithBall = -1;
 
 
     void Awake(){
@@ -32,14 +36,12 @@ public class GameManagerScript : MonoBehaviour {
         this.scores[1] = 0;
 
         this.countdown.SetActive(false);
+        this.winner = -1;
         this.Reset();
-        //this.StartCountdown();
 
     }
 
-    public void Reset(){
-
-        this.StartCountdown();
+    private void ResetPlayerPositions(){
 
         this.playerOne.transform.position = new Vector2(-4f, 0f);
         this.playerOne.velocity = Vector2.zero;
@@ -48,14 +50,23 @@ public class GameManagerScript : MonoBehaviour {
         this.playerTwo.transform.position = new Vector2(4f, 0f);
         this.playerTwo.velocity = Vector2.zero;
         this.playerTwo.angularVelocity = 0f;
+    }
+
+    public void Reset(){
+
+        this.StartCountdown();
+
+        this.ResetPlayerPositions();
 
         this.ball.transform.position = Vector2.zero;
         this.ball.velocity = Vector2.zero;
         this.ball.angularVelocity = 0f;
 
-        //GameObject.FindGameObjectWithTag("Chain").GetComponent<ElasticRope>().DisconnectRope();
+    }
 
-        
+    public void GoToMenu(){
+
+        SceneManager.LoadScene(0);
     }
 
     public void ScoreGoal(int scorerPlayer){
@@ -66,7 +77,12 @@ public class GameManagerScript : MonoBehaviour {
         this.playerScores[scorerPlayer].text = scores[scorerPlayer].ToString();
         goalSound.Play();
 
-        Invoke("Reset", 1f);
+        if (scores[scorerPlayer] == END_GAME_SCORE) {
+            this.ResetPlayerPositions();
+            this.winner = scorerPlayer;
+            Invoke("GoToMenu", 3f);
+        }else
+            Invoke("Reset", 1f);
     }
 
     public void StartCountdown(){

@@ -44,7 +44,7 @@ public class ShipMovementSimple : MonoBehaviour {
             transform.Rotate(transform.forward * -rotSpeed);
         }
         if (Input.GetKey(this.removeRopeKey)){
-            if(GameManagerScript.instance.PlayerWithBall == this.gameObject.GetComponent<ShipData>().playerNumber)
+            if(GameManagerScript.instance.playerWithBall == this.gameObject.GetComponent<ShipData>().playerNumber)
                 GameObject.FindGameObjectWithTag("Chain").GetComponent<ElasticRope>().DisconnectRope();
         }
 

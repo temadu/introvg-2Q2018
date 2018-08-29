@@ -11,12 +11,20 @@ public class ParticleHelperScript : MonoBehaviour
         Instance = this;
     }
 
-    public void Explosion(Vector3 position, Color c){
+    public void Explosion(Vector3 position, int colorId) {
+
+        Color c;
+        if (colorId == 0)
+            c = new Color(0.6f, 0f, 0f,  1f);
+        else
+            c = new Color(0f, 0f, 0.6f, 1f);
 
         instantiate(ExplosionEffect, position, c);
 
     }
-   
+
+
+
     private ParticleSystem instantiate(ParticleSystem prefab, Vector3 position, Color c){
 
         ParticleSystem newParticleSystem = Instantiate(

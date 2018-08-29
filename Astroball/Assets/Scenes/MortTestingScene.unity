@@ -531,6 +531,11 @@ Prefab:
       propertyPath: m_Name
       value: Player1
       objectReference: {fileID: 0}
+    - target: {fileID: 114356939943243098, guid: 661cb2ebd9c67f546a6ef0da80f6e2bb,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 661cb2ebd9c67f546a6ef0da80f6e2bb, type: 2}
   m_IsPrefabAsset: 0
@@ -602,7 +607,12 @@ Prefab:
     - target: {fileID: 114356939943243098, guid: 661cb2ebd9c67f546a6ef0da80f6e2bb,
         type: 2}
       propertyPath: playerNumber
-      value: 2
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114356939943243098, guid: 661cb2ebd9c67f546a6ef0da80f6e2bb,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 661cb2ebd9c67f546a6ef0da80f6e2bb, type: 2}
@@ -752,6 +762,12 @@ Prefab:
       propertyPath: playerTwo
       value: 
       objectReference: {fileID: 762468191}
+    - target: {fileID: 114766798572656638, guid: 6e8af2f0afe176f4a88d08e76a886365,
+        type: 2}
+      propertyPath: WinEffect
+      value: 
+      objectReference: {fileID: 198294806892113314, guid: 3477a3ee8958cff4d9a7ced8c18c8d29,
+        type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6e8af2f0afe176f4a88d08e76a886365, type: 2}
   m_IsPrefabAsset: 0
