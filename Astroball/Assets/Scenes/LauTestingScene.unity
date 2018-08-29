@@ -797,6 +797,11 @@ Prefab:
       propertyPath: ballPickupSound
       value: 
       objectReference: {fileID: 2059973081}
+    - target: {fileID: 114356939943243098, guid: 661cb2ebd9c67f546a6ef0da80f6e2bb,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 661cb2ebd9c67f546a6ef0da80f6e2bb, type: 2}
   m_IsPrefabAsset: 0
@@ -868,7 +873,7 @@ Prefab:
     - target: {fileID: 114356939943243098, guid: 661cb2ebd9c67f546a6ef0da80f6e2bb,
         type: 2}
       propertyPath: playerNumber
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 11467686, guid: 661cb2ebd9c67f546a6ef0da80f6e2bb, type: 2}
       propertyPath: shootSound
@@ -884,6 +889,11 @@ Prefab:
       propertyPath: ballPickupSound
       value: 
       objectReference: {fileID: 2059973081}
+    - target: {fileID: 114356939943243098, guid: 661cb2ebd9c67f546a6ef0da80f6e2bb,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 661cb2ebd9c67f546a6ef0da80f6e2bb, type: 2}
   m_IsPrefabAsset: 0
@@ -1161,6 +1171,10 @@ Prefab:
       propertyPath: goalSound
       value: 
       objectReference: {fileID: 1360381603}
+    - target: {fileID: 11498872, guid: 6e8af2f0afe176f4a88d08e76a886365, type: 2}
+      propertyPath: objectPrefabs.Array.data[1]
+      value: 
+      objectReference: {fileID: 176778, guid: ebc99476f927b4d4b81a48c00ae34e48, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6e8af2f0afe176f4a88d08e76a886365, type: 2}
   m_IsPrefabAsset: 0
@@ -1189,7 +1203,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: c5cd38feee2a74612bdcc0facc9f9e97, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 9b4b534da84b746368be4a02c22ea6f4, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
