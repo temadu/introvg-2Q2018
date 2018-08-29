@@ -32,7 +32,7 @@ GameObject:
   - component: {fileID: 114947216011624862}
   - component: {fileID: 114356939943243098}
   m_Layer: 8
-  m_Name: ShipRed
+  m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

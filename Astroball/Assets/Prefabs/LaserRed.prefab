@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 11414486}
   m_Layer: 0
   m_Name: LaserRed
-  m_TagString: Untagged
+  m_TagString: Laser
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -26,8 +26,8 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 176778}
-  m_LocalRotation: {x: 0, y: -0, z: -0.8396794, w: 0.5430825}
-  m_LocalPosition: {x: 5.500758, y: -2.425688, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -4, y: 0.46, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -47,7 +47,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: -0.05}
   serializedVersion: 2
-  m_Radius: 0.05
+  m_Radius: 0.015
 --- !u!114 &11414486
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -72,7 +72,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 20
-  timer: 0.5
+  timer: 0.8
 --- !u!114 &11436472
 MonoBehaviour:
   m_ObjectHideFlags: 1
