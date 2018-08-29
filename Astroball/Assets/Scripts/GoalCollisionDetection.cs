@@ -19,6 +19,7 @@ public class GoalCollisionDetection : MonoBehaviour{
             GameManagerScript.instance.ScoreGoal(scorerPlayer);
 
             ParticleHelperScript.Instance.Explosion(other.gameObject.GetComponent<Rigidbody2D>().position, scorerPlayer);
+            GameObject.FindGameObjectWithTag("MainCamera").GetComponent<CameraShake>().shakeDuration = 0.25f;
 
             // Destroy(other.gameObject);
         }

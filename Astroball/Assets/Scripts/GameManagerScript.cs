@@ -105,9 +105,9 @@ public class GameManagerScript : MonoBehaviour {
         Time.timeScale = 0;
         float timePause = Time.realtimeSinceStartup + 3.5f;
 
-        while (Time.realtimeSinceStartup < timePause)
+        while (Time.realtimeSinceStartup < timePause) {
             yield return 0;
-        
+        }
         this.countdown.SetActive(false);
         Time.timeScale = 1;
     }
