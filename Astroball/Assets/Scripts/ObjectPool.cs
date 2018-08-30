@@ -81,7 +81,6 @@ public class ObjectPool : MonoBehaviour {
         {
             if (pooledObjects.Count > 0)
             {
-                Debug.Log("Popeo el fucking object");
                 return pooledObjects.Pop();
             }
 

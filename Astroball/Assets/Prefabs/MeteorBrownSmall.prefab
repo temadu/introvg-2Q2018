@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 11418486}
   - component: {fileID: 114335484038184902}
   - component: {fileID: 50629906782859140}
+  - component: {fileID: 114705195695179390}
   m_Layer: 0
   m_Name: MeteorBrownSmall
   m_TagString: Meteor
@@ -182,3 +183,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 06ae2dfd6973422478710fc7dcecf8c9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &114705195695179390
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 136926}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 39ab15f1a09db0f40b3b90f5b6bf20a7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gObject: {fileID: 0}
+  quantity: 0

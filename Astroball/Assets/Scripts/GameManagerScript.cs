@@ -83,6 +83,9 @@ public class GameManagerScript : MonoBehaviour {
         goalSound.Play();
 
         if (scores[scorerPlayer] == END_GAME_SCORE) {
+            foreach (var meteor in GameObject.FindGameObjectsWithTag("Meteor")){
+                meteor.GetComponent<InstanciateObjectOnDestroy>().isQuitting = true;
+            }
             this.ResetPlayerPositions();
             this.winner = scorerPlayer;
 

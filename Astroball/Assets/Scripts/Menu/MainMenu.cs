@@ -6,7 +6,9 @@ using UnityEngine.SceneManagement;
 public class MainMenu : MonoBehaviour {
 
     public void StartGame() {
-
+        foreach (var meteor in GameObject.FindGameObjectsWithTag("Meteor")){
+            meteor.GetComponent<InstanciateObjectOnDestroy>().isQuitting = true;
+        }        
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 
