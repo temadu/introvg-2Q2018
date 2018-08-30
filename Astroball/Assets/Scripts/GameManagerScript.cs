@@ -10,6 +10,8 @@ public class GameManagerScript : MonoBehaviour {
     public const int PLAYERS_COUNT = 2;
     public const int END_GAME_SCORE = 2;
 
+    public bool goalResetBlock = false;
+
     public static GameManagerScript instance;
     public int[] scores;
     public int winner = -1;
@@ -63,6 +65,7 @@ public class GameManagerScript : MonoBehaviour {
         this.ball.transform.position = Vector2.zero;
         this.ball.velocity = Vector2.zero;
         this.ball.angularVelocity = 0f;
+        this.goalResetBlock = false;
 
     }
 
@@ -72,10 +75,10 @@ public class GameManagerScript : MonoBehaviour {
     }
 
     public void ScoreGoal(int scorerPlayer){
-
+        this.goalResetBlock = true;
         Time.timeScale = 0.5f;
         scores[scorerPlayer]++;
-        Debug.Log(scores[scorerPlayer]);
+        // Debug.Log(scores[scorerPlayer]);
         this.playerScores[scorerPlayer].text = scores[scorerPlayer].ToString();
         goalSound.Play();
 
@@ -89,8 +92,9 @@ public class GameManagerScript : MonoBehaviour {
                 ParticleHelperScript.Instance.Winner(this.playerTwo.transform.position, scorerPlayer);
 
             Invoke("GoToMenu", 3f);
-        }else
+        }else{
             Invoke("Reset", 1f);
+        }
     }
 
     public void StartCountdown(){

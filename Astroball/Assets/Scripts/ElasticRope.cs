@@ -15,8 +15,6 @@ public class ElasticRope : MonoBehaviour {
     private SpringJoint2D sJoint;
 
     public void Start() {
-        Debug.Log("Start objectixo");
-
         this.col = GetComponent<EdgeCollider2D>();
         this.vertices = col.points;
         this.dJoint = GetComponent<DistanceJoint2D>();

@@ -4,13 +4,13 @@ using UnityEngine;
 
 public class CountDownAudioScript : MonoBehaviour {
 
-    public AudioSource audio;
+    public AudioSource audioTick;
     public AudioSource audioFinal;
 
 
     public void PlayAudio()
     {
-        audio.Play();
+        audioTick.Play();
     }
 	
     public void PlayLastAudio()
