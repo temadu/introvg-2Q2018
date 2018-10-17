@@ -12,7 +12,7 @@ public class GameManager : MonoBehaviour
   public bool goalResetBlock = false;
 
   public static GameManager instance;
-  public int[] scores;
+  private int[] scores;
   public int winner = -1;
 
   public TextMeshProUGUI[] playerScores;
@@ -20,7 +20,7 @@ public class GameManager : MonoBehaviour
 
   // public GameObject countdown;
 
-  public int playerWithBall = -1;
+  // public int playerWithBall = -1;
 
 
   void Awake()
