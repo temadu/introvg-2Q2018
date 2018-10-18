@@ -40,6 +40,17 @@ public class CameraFollow : MonoBehaviour {
 		cam.orthographicSize = Mathf.Lerp(cam.fieldOfView, newZoom, Time.deltaTime);
   }
 
+	public void ResetCamera(){
+    Vector3 centerPoint = GetCenterPoint();
+    Vector3 newPosition = centerPoint + offset;
+    transform.position = newPosition;
+
+    float newZoom = Mathf.Lerp(maxZoom, minZoom, GetGreatestDistance() / zoomLimiter);
+    cam.fieldOfView = newZoom;
+    cam.orthographicSize = newZoom;
+
+  }
+
 	float GetGreatestDistance(){
     var bounds = new Bounds(targets[0].transform.position, Vector3.zero);
     for (int i = 0; i < targets.Count; i++)

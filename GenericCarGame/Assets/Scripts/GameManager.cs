@@ -62,6 +62,7 @@ public class GameManager : MonoBehaviour
       counter = this.players[i].GetComponent<CheckpointCounter>();
       counter.currentLap = counter.currentCheckpoint = 0;
     }
+    cameraFollow.ResetCamera();
     // this.firstPlace = players[0].GetComponent<CheckpointCounter>();
   }
 
