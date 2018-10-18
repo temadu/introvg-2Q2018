@@ -20,6 +20,7 @@ public class Car : MonoBehaviour
   public float bumpSpeed = 20f;
   public float explosionForce = 20f;
   public float explosionTorque = 100f;
+  public float boosterForce = 60f;
 
   [Header("Controller Settings")]
   public KeyCode thrusterKey = KeyCode.UpArrow;
@@ -157,5 +158,11 @@ public class Car : MonoBehaviour
     {
      this.Explode();
     }
+    if (other.gameObject.CompareTag("Booster"))
+    {
+      rb.AddRelativeForce(Vector3.forward * boosterForce,ForceMode.Impulse);
+    }
+  }
+  private void OnTriggerStay(Collider other) {
   }
 }
