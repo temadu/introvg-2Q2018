@@ -22,11 +22,8 @@ public class Car : MonoBehaviour
   public float explosionTorque = 100f;
   public float boosterForce = 60f;
 
-  [Header("Controller Settings")]
-  public KeyCode thrusterKey = KeyCode.UpArrow;
-  public KeyCode leftKey = KeyCode.LeftArrow;
-  public KeyCode rightKey = KeyCode.RightArrow;
-
+  private string verticalInput;
+  private string horizontalInput;
   private float powerInput;
   private float turnInput;
   private bool boost;
@@ -41,6 +38,14 @@ public class Car : MonoBehaviour
     rb = GetComponent<Rigidbody>();
     engineSound = GetComponent<AudioSource>();
     setCarColor();
+    verticalInput = "Vertical" + playerNumber;
+    horizontalInput = "Horizontal" + playerNumber;
+    string[] names = Input.GetJoystickNames();
+    for (int i = 0; i < names.Length; i++)
+    {
+    Debug.Log(names[i]);
+        
+    }
   }
 
   void setCarColor(){
@@ -64,23 +69,23 @@ public class Car : MonoBehaviour
   void Update()
   {
     if(controlable && alive){
-      powerInput = Input.GetAxis("Vertical");
+      powerInput = Input.GetAxis(verticalInput);
       if(powerInput!=0){
         StartCoroutine(FadeOut(engineSound.pitch,1f,0.5f));
       }else{
         StartCoroutine(FadeOut(engineSound.pitch,0.3f,0.5f));
       }
-      turnInput = Input.GetAxis("Horizontal");
-      boost = Input.GetKeyDown(KeyCode.W);
-      bumpLeft = Input.GetKeyDown(KeyCode.A);
-      bumpRight = Input.GetKeyDown(KeyCode.D);
+      turnInput = Input.GetAxis(horizontalInput);
+      // boost = Input.GetKeyDown(KeyCode.W);
+      // bumpLeft = Input.GetKeyDown(KeyCode.A);
+      // bumpRight = Input.GetKeyDown(KeyCode.D);
     }
     // if(Input.GetKeyDown(KeyCode.R)){
     //   ResetCar();
     // }
-    if(Input.GetKeyDown(KeyCode.E)){
-      Explode();
-    }
+    // if(Input.GetKeyDown(KeyCode.E)){
+    //   Explode();
+    // }
   }
 
   void FixedUpdate()

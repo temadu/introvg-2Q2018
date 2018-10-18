@@ -664,6 +664,12 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &856016570 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 114172368570335884, guid: 6ccff6d8a710ac1419c9378f5214d555,
+    type: 2}
+  m_PrefabInternal: {fileID: 127196781}
+  m_Script: {fileID: 11500000, guid: a041fc8ee4faa1b44aa836ae33bf6e88, type: 3}
 --- !u!1 &950738685
 GameObject:
   m_ObjectHideFlags: 0
@@ -860,11 +866,6 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1004115094}
   m_Mesh: {fileID: 4300000, guid: bdbd9d7226778fd4b8192cf3df5e028d, type: 3}
---- !u!4 &1005641821 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 4933417830122844, guid: 6ccff6d8a710ac1419c9378f5214d555,
-    type: 2}
-  m_PrefabInternal: {fileID: 127196781}
 --- !u!1 &1116584173
 GameObject:
   m_ObjectHideFlags: 0
@@ -1797,7 +1798,7 @@ Prefab:
         type: 2}
       propertyPath: targets.Array.data[0]
       value: 
-      objectReference: {fileID: 1005641821}
+      objectReference: {fileID: 856016570}
     - target: {fileID: 114361585070796688, guid: d39f3be75106dbc44a8f14716e2ee309,
         type: 2}
       propertyPath: targets.Array.data[1]
