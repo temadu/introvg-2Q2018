@@ -7,105 +7,88 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
-  public const int END_GAME_SCORE = 2;
+  public const int END_GAME_SCORE = 3;
 
-  public bool goalResetBlock = false;
+  public float countDownTimer = 3.5f;
+  public int circuitLength = 8;
 
+  public float distanceBetweenCars = 1f;
   public static GameManager instance;
-  private int[] scores;
+  
+  public CheckpointCounter firstPlace;
+  public Transform[] checkpoints;
+  
   public int winner = -1;
 
-  public TextMeshProUGUI[] playerScores;
+  public TextMeshProUGUI[] playerScoresGUI;
+  public GameObject countdown;
   public Car[] players;
-
-  // public GameObject countdown;
-
-  // public int playerWithBall = -1;
+  private List<Car> playersLeft;
+  private int[] playerScores;
+  public CameraFollow cameraFollow;
 
 
   void Awake()
   {
     instance = this;
+    firstPlace = players[0].GetComponent<CheckpointCounter>();
+    this.checkpoints = new Transform[circuitLength];
 
   }
   void Start()
-  {
-
-    this.scores = new int[players.Length];
-    for (int i = 0; i < scores.Length; i++){
-      this.scores[i] = 0;   
-    }
-
-    // this.countdown.SetActive(false);
+  { 
+    this.playerScores = new int[players.Length];
+    
+    this.countdown.SetActive(false);
     this.winner = -1;
     this.Reset();
-
   }
 
-  private void ResetPlayerPositions()
-  {
+  
 
-    // this.playerOne.transform.position = new Vector2(-4f, 0f);
-    // this.playerOne.transform.rotation = Quaternion.Euler(new Vector3(0, 0, -90));
-    // this.playerOne.velocity = Vector2.zero;
-    // this.playerOne.angularVelocity = 0f;
-
-    // this.playerTwo.transform.position = new Vector2(4f, 0f);
-    // this.playerTwo.transform.rotation = Quaternion.Euler(new Vector3(0, 0, 90));
-    // this.playerTwo.velocity = Vector2.zero;
-    // this.playerTwo.angularVelocity = 0f;
-  }
-
-  public void Reset()
-  {
-
-    this.StartCountdown();
-
+  public void Reset(){
     this.ResetPlayerPositions();
-
+    this.StartCountdown();
   }
 
-  public void GoToMenu()
-  {
+  private void ResetPlayerPositions(){
+    this.playersLeft = new List<Car>();
+    this.cameraFollow.targets = new List<Car>();
+    CheckpointCounter counter;
+    for (int i = 0; i < players.Length; i++){
+      this.playersLeft.Add(this.players[i]);
+      this.cameraFollow.targets.Add(this.players[i]);
+      this.players[i].ResetCar(new Vector3(1f - i * distanceBetweenCars, 0.2f, 1f), new Quaternion(0f, 0f, 0f, 1f));
+      counter = this.players[i].GetComponent<CheckpointCounter>();
+      counter.currentLap = counter.currentCheckpoint = 0;
+    }
+    // this.firstPlace = players[0].GetComponent<CheckpointCounter>();
+  }
 
+  public void GoToMenu(){
     SceneManager.LoadScene(0);
   }
 
   public void DestroyPlayer(Car player)
   {
-    // this.goalResetBlock = true;
-    // Time.timeScale = 0.5f;
-    // scores[scorerPlayer]++;
-    // // Debug.Log(scores[scorerPlayer]);
-    // this.playerScores[scorerPlayer].text = scores[scorerPlayer].ToString();
-    // goalSound.Play();
-
-    // if (scores[scorerPlayer] == END_GAME_SCORE)
-    // {
-    //   foreach (var meteor in GameObject.FindGameObjectsWithTag("Meteor"))
-    //   {
-    //     meteor.GetComponent<InstanciateObjectOnDestroy>().isQuitting = true;
-    //   }
-    //   this.ResetPlayerPositions();
-    //   this.winner = scorerPlayer;
-
-    //   if (scorerPlayer == 0)
-    //     ParticleHelperScript.Instance.Winner(this.playerOne.transform.position, scorerPlayer);
-    //   else
-    //     ParticleHelperScript.Instance.Winner(this.playerTwo.transform.position, scorerPlayer);
-
-    //   Invoke("GoToMenu", 3f);
-    // }
-    // else
-    // {
-    //   Invoke("Reset", 1f);
-    // }
+    if(playersLeft.Count > 1){
+      playersLeft.RemoveAll(x => x.playerNumber == player.playerNumber);
+      cameraFollow.targets.RemoveAll(x => x.playerNumber == player.playerNumber);
+      if(playersLeft.Count == 1){
+        playerScores[playersLeft[0].playerNumber-1]++;
+        if(playerScores[playersLeft[0].playerNumber-1] == END_GAME_SCORE)
+          Invoke("GoToMenu", 2f);
+        else
+          Invoke("Reset", 2f);
+      }
+      this.playerScoresGUI[playersLeft[0].playerNumber-1].text = playerScores[playersLeft[0].playerNumber-1].ToString();
+    }
   }
 
   public void StartCountdown()
   {
 
-    // this.countdown.SetActive(true);
+    this.countdown.SetActive(true);
     StartCoroutine("StartDelay");
 
   }
@@ -114,15 +97,24 @@ public class GameManager : MonoBehaviour
   {
 
     Time.timeScale = 0;
-    float timePause = Time.realtimeSinceStartup + 3.5f;
+    float timePause = Time.realtimeSinceStartup + countDownTimer;
 
     while (Time.realtimeSinceStartup < timePause)
     {
       yield return 0;
     }
-    // this.countdown.SetActive(false);
+    this.countdown.SetActive(false);
     Time.timeScale = 1;
   }
 
+  public void checkFirstPlace(CheckpointCounter player){
+    // Debug.Log(player.GetComponent<Car>().playerNumber + ": " + player.currentCheckpoint);
+    if(firstPlace.currentLap > player.currentLap)
+      return;
+    if(firstPlace.currentCheckpoint >= player.currentCheckpoint)
+      return;
+    // Debug.Log("Changed First Place");
+    firstPlace = player;
+  }
 
 }

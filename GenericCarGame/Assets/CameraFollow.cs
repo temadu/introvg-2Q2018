@@ -5,7 +5,7 @@ using UnityEngine;
 [RequireComponent(typeof(Camera))]
 public class CameraFollow : MonoBehaviour {
 
-	public List<Transform> targets;
+	public List<Car> targets;
 
 	public Vector3 offset;
 	public float smoothTime = 0.5f;
@@ -41,22 +41,22 @@ public class CameraFollow : MonoBehaviour {
   }
 
 	float GetGreatestDistance(){
-    var bounds = new Bounds(targets[0].position, Vector3.zero);
+    var bounds = new Bounds(targets[0].transform.position, Vector3.zero);
     for (int i = 0; i < targets.Count; i++)
     {
-      bounds.Encapsulate(targets[i].position);
+      bounds.Encapsulate(targets[i].transform.position);
     }
 		return Mathf.Max(bounds.size.x,bounds.size.z);
 	}
 	
 	Vector3 GetCenterPoint(){
 		if(targets.Count == 1){
-			return targets[0].position;
+			return targets[0].transform.position;
 		}
 
-		var bounds = new Bounds(targets[0].position, Vector3.zero);
+		var bounds = new Bounds(targets[0].transform.position, Vector3.zero);
 		for (int i = 0; i < targets.Count; i++){
-				bounds.Encapsulate(targets[i].position);
+				bounds.Encapsulate(targets[i].transform.position);
 		}
 		return bounds.center;
 	}

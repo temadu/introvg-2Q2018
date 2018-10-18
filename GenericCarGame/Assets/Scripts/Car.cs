@@ -74,9 +74,9 @@ public class Car : MonoBehaviour
       bumpLeft = Input.GetKeyDown(KeyCode.A);
       bumpRight = Input.GetKeyDown(KeyCode.D);
     }
-    if(Input.GetKeyDown(KeyCode.R)){
-      ResetCar();
-    }
+    // if(Input.GetKeyDown(KeyCode.R)){
+    //   ResetCar();
+    // }
     if(Input.GetKeyDown(KeyCode.E)){
       Explode();
     }
@@ -116,18 +116,19 @@ public class Car : MonoBehaviour
     rb.constraints = RigidbodyConstraints.None;
     rb.AddRelativeForce(0f, explosionForce, 0f,ForceMode.Impulse);
     rb.AddRelativeTorque(Random.Range(0f, explosionTorque), Random.Range(0f, explosionTorque), Random.Range(0f, explosionTorque));
+    GameManager.instance.DestroyPlayer(this);
   }
 
-  public void ResetCar(){
+  public void ResetCar(Vector3 newPosition, Quaternion newRotation){
     // Reset the velocity
-    rb.constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationZ;
+    rb.constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationZ | RigidbodyConstraints.FreezePositionY;
     rb.velocity = Vector3.zero;
     rb.angularVelocity = Vector3.zero;
     // "Pause" the physics
     rb.isKinematic = true;
     // Do positioning, etc
-    transform.position = new Vector3(transform.position.x,1f,transform.position.z);
-    transform.rotation = new Quaternion(0f,0f,0f,1f);
+    transform.position = newPosition;
+    transform.rotation = newRotation;
     // Re-enable the physics
     rb.isKinematic = false;
     setCarColor();
@@ -147,6 +148,14 @@ public class Car : MonoBehaviour
       engineSound.pitch = Mathf.Lerp(pitchStart, pitchFinish, (elapsedTime / time));
       elapsedTime += Time.deltaTime;
       yield return new WaitForEndOfFrame();
+    }
+  }
+
+  private void OnTriggerEnter(Collider other)
+  {
+    if (other.gameObject.CompareTag("Instakill"))
+    {
+     this.Explode();
     }
   }
 }
