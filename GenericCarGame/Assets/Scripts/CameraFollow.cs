@@ -46,8 +46,10 @@ public class CameraFollow : MonoBehaviour {
     transform.position = newPosition;
 
     float newZoom = Mathf.Lerp(maxZoom, minZoom, GetGreatestDistance() / zoomLimiter);
-    cam.fieldOfView = newZoom;
-    cam.orthographicSize = newZoom;
+    if(cam != null){
+			cam.fieldOfView = newZoom;
+    	cam.orthographicSize = newZoom;
+		}
 
   }
 
