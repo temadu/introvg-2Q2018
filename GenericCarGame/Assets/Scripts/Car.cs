@@ -40,12 +40,11 @@ public class Car : MonoBehaviour
     setCarColor();
     verticalInput = "Vertical" + playerNumber;
     horizontalInput = "Horizontal" + playerNumber;
-    string[] names = Input.GetJoystickNames();
-    for (int i = 0; i < names.Length; i++)
-    {
-    Debug.Log(names[i]);
-        
-    }
+    // string[] names = Input.GetJoystickNames();
+    // for (int i = 0; i < names.Length; i++)
+    // {
+    //   Debug.Log(names[i]);
+    // }
   }
 
   void setCarColor(){

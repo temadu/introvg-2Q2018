@@ -21,6 +21,7 @@ public class GameManager : MonoBehaviour
   public int winner = -1;
 
   public GameObject playerScoresPanel;
+  public GameObject endGamePanel;
   public TextMeshProUGUI[] playerScoresGUI;
   public GameObject countdown;
   public Car[] players;
@@ -48,6 +49,7 @@ public class GameManager : MonoBehaviour
   
 
   public void Reset(){
+    Time.timeScale = 1f;
     this.playerScoresPanel.SetActive(false);
     this.ResetPlayerPositions();
     this.StartCountdown();
@@ -70,6 +72,8 @@ public class GameManager : MonoBehaviour
 
   public void GoToMenu(){
     this.playerScoresPanel.SetActive(false);
+    this.endGamePanel.SetActive(false);
+    Time.timeScale = 1f;
     SceneManager.LoadScene(0);
   }
 
@@ -80,13 +84,17 @@ public class GameManager : MonoBehaviour
       cameraFollow.targets.RemoveAll(x => x.playerNumber == player.playerNumber);
       if(playersLeft.Count == 1){
         playerScores[playersLeft[0].playerNumber-1]++;
+        this.playerScoresGUI[playersLeft[0].playerNumber - 1].text = playerScores[playersLeft[0].playerNumber - 1].ToString();
         this.playerScoresPanel.SetActive(true);
-        if(playerScores[playersLeft[0].playerNumber-1] == END_GAME_SCORE)
+        if(playerScores[playersLeft[0].playerNumber-1] == END_GAME_SCORE){
+          this.winner = playersLeft[0].playerNumber;
+          endGamePanel.SetActive(true);
+          // Time.timeScale = 0.5f;
           Invoke("GoToMenu", 2f);
+        }
         else
           Invoke("Reset", 2f);
       }
-      this.playerScoresGUI[playersLeft[0].playerNumber-1].text = playerScores[playersLeft[0].playerNumber-1].ToString();
     }
   }
 
