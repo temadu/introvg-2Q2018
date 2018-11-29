@@ -148,7 +148,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   countDownTimer: 3.5
-  circuitLength: 8
+  circuitLength: 88
   distanceBetweenCars: 1
   firstPlace: {fileID: 0}
   checkpoints: []
@@ -161,9 +161,11 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   countdown: {fileID: 0}
-  players:
+  cars:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  players: []
   cameraFollow: {fileID: 0}
+  wall: {fileID: 0}

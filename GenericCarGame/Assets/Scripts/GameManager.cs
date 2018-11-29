@@ -10,36 +10,53 @@ public class GameManager : MonoBehaviour
   public const int END_GAME_SCORE = 3;
 
   public float countDownTimer = 3.5f;
+  
+  [HideInInspector]
   public int circuitLength = 8;
 
   public float distanceBetweenCars = 1f;
   public static GameManager instance;
   
+  [HideInInspector]
   public CheckpointCounter firstPlace;
+  
+  [HideInInspector]
   public Transform[] checkpoints;
   
+  [HideInInspector]
   public int winner = -1;
 
   public GameObject playerScoresPanel;
   public GameObject endGamePanel;
   public TextMeshProUGUI[] playerScoresGUI;
   public GameObject countdown;
+  public Car[] cars;
+  
+  [HideInInspector]
   public Car[] players;
   private List<Car> playersLeft;
   private int[] playerScores;
   public CameraFollow cameraFollow;
+  public WallFollow wall;
 
 
   void Awake()
   {
     instance = this;
+    players = new Car[Properties.players];
+    for (int i = 0; i < Properties.players; i++){
+      players[i] = cars[i];
+      cars[i].gameObject.SetActive(true);
+    }
     firstPlace = players[0].GetComponent<CheckpointCounter>();
-    this.checkpoints = new Transform[circuitLength];
-
+    if(this.checkpoints == null || this.checkpoints.Length == 0)
+      this.checkpoints = new Transform[GameObject.Find("Random Circuit").transform.childCount];
   }
   void Start()
   { 
-    this.playerScores = new int[players.Length];
+    if(this.checkpoints == null || this.checkpoints.Length == 0)
+      this.checkpoints = new Transform[GameObject.Find("Random Circuit").transform.childCount];
+    this.playerScores = new int[cars.Length];
     
     this.countdown.SetActive(false);
     this.winner = -1;
@@ -52,6 +69,7 @@ public class GameManager : MonoBehaviour
     Time.timeScale = 1f;
     this.playerScoresPanel.SetActive(false);
     this.ResetPlayerPositions();
+    // this.wall.ResetWall();
     this.StartCountdown();
   }
 
@@ -92,8 +110,9 @@ public class GameManager : MonoBehaviour
           // Time.timeScale = 0.5f;
           Invoke("GoToMenu", 2f);
         }
-        else
+        else{
           Invoke("Reset", 2f);
+        }
       }
     }
   }

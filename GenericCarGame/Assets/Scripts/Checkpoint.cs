@@ -7,14 +7,16 @@ public class Checkpoint : MonoBehaviour {
 	public int checkpointNumber = 1;
 
 	private void Awake() {
-		if(CheckpointCounter.MAX_CHECKPOINT < checkpointNumber){
-      CheckpointCounter.MAX_CHECKPOINT = checkpointNumber;
-			// Debug.Log("MAX CHECKPOINT: " + CheckpointCounter.MAX_CHECKPOINT);
-		}
+		
 	}
 
 	private void Start() {
+        if (CheckpointCounter.MAX_CHECKPOINT < checkpointNumber)
+        {
+            CheckpointCounter.MAX_CHECKPOINT = checkpointNumber;
+            Debug.Log(CheckpointCounter.MAX_CHECKPOINT);
+            // GameManager.instance.checkpoints = new Transform[CheckpointCounter.MAX_CHECKPOINT + 1];
+        }
 		GameManager.instance.checkpoints[checkpointNumber] = this.transform;
-		// Debug.Log(GameManager.instance.checkpoints[checkpointNumber].position);
 	}
 }
