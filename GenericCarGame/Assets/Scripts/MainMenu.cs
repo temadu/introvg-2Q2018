@@ -7,6 +7,8 @@ public class MainMenu : MonoBehaviour {
 
 	public GameObject mainMenu;
 	public GameObject playerMenu;
+	public bool randomStage;
+
 	public void setMenu(int num){
 		switch (num)
 		{
@@ -15,6 +17,12 @@ public class MainMenu : MonoBehaviour {
 				mainMenu.SetActive(true);
 				break;
 			case 1:
+				randomStage = false;
+                mainMenu.SetActive(false);
+                playerMenu.SetActive(true);
+				break;
+			case 2:
+				randomStage = true;
                 mainMenu.SetActive(false);
                 playerMenu.SetActive(true);
 				break;
@@ -24,7 +32,12 @@ public class MainMenu : MonoBehaviour {
 	public void LoadGame(int playerNum){
 		Properties.players = playerNum;
 		this.gameObject.SetActive(false);
-		SceneManager.LoadScene("RandomCircuit");
+        mainMenu.SetActive(false);
+        playerMenu.SetActive(false);
+		if(randomStage)
+			SceneManager.LoadScene("RandomCircuit");
+		else
+			SceneManager.LoadScene("PreGeneratedCircuit");
 	}
 
 	public void QuitGame(){

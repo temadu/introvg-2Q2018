@@ -14,7 +14,7 @@ public class Checkpoint : MonoBehaviour {
         if (CheckpointCounter.MAX_CHECKPOINT < checkpointNumber)
         {
             CheckpointCounter.MAX_CHECKPOINT = checkpointNumber;
-            Debug.Log(CheckpointCounter.MAX_CHECKPOINT);
+            // Debug.Log(CheckpointCounter.MAX_CHECKPOINT);
             // GameManager.instance.checkpoints = new Transform[CheckpointCounter.MAX_CHECKPOINT + 1];
         }
 		GameManager.instance.checkpoints[checkpointNumber] = this.transform;

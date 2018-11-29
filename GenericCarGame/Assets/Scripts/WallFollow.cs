@@ -38,11 +38,11 @@ public class WallFollow : MonoBehaviour {
 		if(currentCheckpoint < 0){
 			// Debug.Log(currentCheckpoint);
 			currentCheckpoint = (CheckpointCounter.MAX_CHECKPOINT + 1) + currentCheckpoint;
-			Debug.Log(CheckpointCounter.MAX_CHECKPOINT);
+			// Debug.Log(CheckpointCounter.MAX_CHECKPOINT);
 		}
 		// Debug.Log(fpCheckpoint);
 		transform.rotation = GameManager.instance.checkpoints[currentCheckpoint].rotation;
 		transform.position = GameManager.instance.checkpoints[currentCheckpoint].position;
-		Debug.Log(GameManager.instance.checkpoints[currentCheckpoint].position);
+		// Debug.Log(GameManager.instance.checkpoints[currentCheckpoint].position);
     }
 }
