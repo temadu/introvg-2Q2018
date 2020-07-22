@@ -1,0 +1,35 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1045 &1
+EditorBuildSettings:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/SaveTheAliens.unity
+    guid: deae4be8fd00ed7449dec9d8801f9440
+  - enabled: 1
+    path: Assets/Scenes/Level1 - Tutorial.unity
+    guid: 98af610523767754ca13456ce4ba5391
+  - enabled: 1
+    path: Assets/Scenes/Level2.unity
+    guid: 16bc7cedee9a8fb4f9e6131fe375a884
+  - enabled: 1
+    path: Assets/Scenes/Level3 - Search.unity
+    guid: 68903a32cda323a41ac36f5d41231f8d
+  - enabled: 1
+    path: Assets/Scenes/Level4 - FieldTutorial.unity
+    guid: 7b8855c876e63d14cb0b660dc050356f
+  - enabled: 1
+    path: Assets/Scenes/Level5 - Search Redux.unity
+    guid: e1f4ecdcceeb6eb459e546618f319a6f
+  - enabled: 1
+    path: Assets/Scenes/Level6 - PortalTutorial.unity
+    guid: df295cdd83e68c94a90e11dbadb0073b
+  - enabled: 1
+    path: Assets/Scenes/Level7 - MultiplePortals.unity
+    guid: 8ecd86075cd4c894eb58c74f69ac40a3
+  - enabled: 1
+    path: Assets/Scenes/Level8.unity
+    guid: 9eada45358119554a8ded267ca98fc99
+  m_configObjects: {}

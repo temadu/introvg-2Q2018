@@ -6,6 +6,14 @@
 Assets/AssetStoreTools*
 */Assets/Universal Sound FX*
 
+/SaveTheAliens/[Ll]ibrary/
+/SaveTheAliens/[Tt]emp/
+/SaveTheAliens/[Oo]bj/
+/SaveTheAliens/[Bb]uild/
+/SaveTheAliens/[Bb]uilds/
+/SaveTheAliens/[Ll]ogs/
+/SaveTheAliens/[Mm]emoryCaptures/
+
 # Visual Studio cache directory
 .vs/
 .vscode/
